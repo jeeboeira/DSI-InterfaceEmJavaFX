@@ -1,4 +1,4 @@
-package com.example.dsiinterfaceemjavafx;
+package com.example;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

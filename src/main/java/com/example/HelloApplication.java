@@ -1,4 +1,4 @@
-package com.example.dsiinterfaceemjavafx;
+package com.example;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

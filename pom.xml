@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.dsiinterfaceemjavafx/com.example.dsiinterfaceemjavafx.HelloApplication
+                                com.example.dsiinterfaceemjavafx/com.example.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
