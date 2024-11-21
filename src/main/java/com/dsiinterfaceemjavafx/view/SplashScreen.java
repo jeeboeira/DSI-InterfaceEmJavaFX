@@ -2,31 +2,49 @@ package com.dsiinterfaceemjavafx.view;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-
-public class SplashScreen implements Screen{ // Tela inicial do jogo
+public class SplashScreen implements Screen { // Tela inicial do jogo
 
     @Override
     public void show(Stage stage) {
-        StackPane root = new StackPane();                                   // Cria um layout simples
+        StackPane root = new StackPane(); // Cria um layout simples para organizar os elementos
 
-        // Mensagem Central
-        Label message = new Label("Pressione qualquer tecla para continuar...");
-        message.setStyle("-fx-font-size: 24; -fx-tex-fill: white;");
+        // Carrega a imagem da splash screen
+        Image splashImage = new Image(
+                getClass().getResource("/com/dsiinterfaceemjavafx/assets/splash.png").toExternalForm()
+        );
+        ImageView imageView = new ImageView(splashImage);
+        imageView.setFitWidth(400); // Ajusta a largura da imagem
+        imageView.setPreserveRatio(true); // Mantém a proporção original da imagem
 
-        root.getChildren().add(message);                                    // Adiciona o rótulo ao layout
-        root.setStyle("-fx-background-color: black;");
+        // Mensagem central
+        //Label message = new Label("Pressione qualquer tecla para continuar...");
+        //message.setStyle("-fx-font-size: 20px; -fx-text-fill: white;");
 
-        Scene scene = new Scene(root, 400, 400);                     // Cria uma cena e adiciona ao palco
+        // Adiciona elementos ao layout
+        root.getChildren().addAll(imageView);
+        root.setStyle("-fx-background-color: black;"); // Define o fundo preto
 
+        // Cria uma cena com o layout
+        Scene scene = new Scene(root, 400, 400);
+
+        // Configura ação para pressionar qualquer tecla
         scene.setOnKeyPressed((KeyEvent event) -> {
-            MainMenu mainMenu = new MainMenu();                             // Navega para o menu inicial
+            MainMenu mainMenu = new MainMenu(); // Navega para o menu inicial
+            mainMenu.show(stage);
+        });
+        // Configura ação para pressionar qualquer tecla
+        scene.setOnMouseClicked((mouseEvent) -> {
+            MainMenu mainMenu = new MainMenu(); // Navega para o menu inicial
             mainMenu.show(stage);
         });
 
+        // Adiciona a cena ao palco
         stage.setScene(scene);
         stage.show();
     }
